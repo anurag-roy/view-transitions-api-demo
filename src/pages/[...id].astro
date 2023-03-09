@@ -1,0 +1,27 @@
+---
+import type { PokemonDetail } from '../types/Pokemon';
+
+const { id } = Astro.params;
+const response = await fetch(`https://pokeapi.deno.dev/pokemon/${id}`);
+const pokemon = (await response.json()) as PokemonDetail;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pokemon.name} - View Transitions API Demo</title>
+  </head>
+  <body style={{ backgroundColor: pokemon.color }}>
+    <img src={pokemon.imageUrl} alt={pokemon.name} />
+  </body>
+</html>
+
+<style>
+  body {
+    display: grid;
+    place-items: center;
+  }
+</style>

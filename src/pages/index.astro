@@ -1,15 +1,44 @@
 ---
+import type { Pokemon } from '../types/Pokemon';
+
+const response = await fetch('https://pokeapi.deno.dev/pokemon?limit=25');
+const pokemon = (await response.json()) as Pokemon[];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Pokedex - View Transitions API Demo</title>
+  </head>
+  <body>
+    <main>
+      {
+        pokemon.map((p) => (
+          <a href={`/${p.id}`} style={{ backgroundColor: p.color }}>
+            <img height="200px" width="200px" src={p.imageUrl} />
+          </a>
+        ))
+      }
+    </main>
+  </body>
 </html>
+
+<style>
+  body {
+    padding: 4em 2em;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, calc(200px + 3em));
+    gap: 2.5em;
+    justify-content: center;
+  }
+
+  a {
+    padding: 2.75em 1.5em;
+    border-radius: 1rem;
+  }
+</style>
