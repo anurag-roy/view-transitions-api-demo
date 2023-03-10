@@ -4,7 +4,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Pokedex - View Transitions API Demo</title>
+    <title>View Transitions API Demo</title>
     <script>
       import '../scripts/navigate';
     </script>
@@ -24,33 +24,13 @@
     margin: 0;
   }
 
-  .full-size {
-    view-transition-name: full-size;
+  .full-screen {
+    view-transition-name: full-screen;
     contain: layout;
   }
 
-  .full-size-image {
-    view-transition-name: full-size-image;
+  .full-screen-image {
+    view-transition-name: full-screen-image;
     contain: layout;
-  }
-
-  ::view-transition-old(full-size),
-  ::view-transition-new(full-size) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-
-  ::view-transition-image-pair(full-size) {
-    isolation: none;
-  }
-
-  ::view-transition-old(full-size-image),
-  ::view-transition-new(full-size-image) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-
-  ::view-transition-image-pair(full-size-image) {
-    isolation: none;
   }
 </style>

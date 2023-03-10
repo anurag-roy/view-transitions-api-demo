@@ -14,14 +14,8 @@ const pokemon = (await response.json()) as Pokemon[];
           href={`/${p.id}`}
           id={`${p.id}`}
           style={{ backgroundColor: p.color }}
-          class="x-full-size"
         >
-          <img
-            height="224px"
-            width="224px"
-            src={p.imageUrl}
-            class="x-full-size-image"
-          />
+          <img height="224px" width="224px" src={p.imageUrl} />
         </a>
       ))
     }
@@ -40,10 +34,5 @@ const pokemon = (await response.json()) as Pokemon[];
   a {
     padding: 2.75em 1.5em;
     border-radius: 1rem;
-  }
-
-  .x-full-size,
-  .x-full-size-image {
-    contain: layout;
   }
 </style>

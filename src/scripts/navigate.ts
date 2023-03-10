@@ -16,7 +16,9 @@ navigation.addEventListener('navigate', (navigateEvent: any) => {
 
   navigateEvent.intercept({
     async handler() {
-      const html = await getHTMLFragment(pathname);
+      const html = await getHTMLFragment(
+        isBack ? pathname : '/fragments' + pathname
+      );
 
       // If the browser doesn't support this API, update the DOM as usual
       if (!document.startViewTransition) {
@@ -29,9 +31,9 @@ navigation.addEventListener('navigate', (navigateEvent: any) => {
       if (!isBack) {
         pokemonCard = document.getElementById(pokemonId);
         if (pokemonCard) {
-          pokemonCard.style.viewTransitionName = 'full-size';
+          pokemonCard.style.viewTransitionName = 'full-screen';
           pokemonCard.querySelector('img')!.style.viewTransitionName =
-            'full-size-image';
+            'full-screen-image';
         }
       }
 
@@ -42,9 +44,9 @@ navigation.addEventListener('navigate', (navigateEvent: any) => {
           window.scrollTo(0, scrollYPosition);
           pokemonCard = document.getElementById(pokemonId);
           if (pokemonCard) {
-            pokemonCard.style.viewTransitionName = 'full-size';
+            pokemonCard.style.viewTransitionName = 'full-screen';
             pokemonCard.querySelector('img')!.style.viewTransitionName =
-              'full-size-image';
+              'full-screen-image';
           }
         }
       });

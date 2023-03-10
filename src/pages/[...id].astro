@@ -1,18 +1,21 @@
 ---
 import type { PokemonDetail } from '../types/Pokemon';
+import Layout from '../layouts/Layout.astro';
 
 const { id } = Astro.params;
 const response = await fetch(`https://pokeapi.deno.dev/pokemon/${id}`);
 const pokemon = (await response.json()) as PokemonDetail;
 ---
 
-<main
-  class="full-size"
-  id={`${pokemon.id}`}
-  style={{ backgroundColor: pokemon.color }}
->
-  <img class="full-size-image" src={pokemon.imageUrl} alt={pokemon.name} />
-</main>
+<Layout>
+  <main
+    class="full-screen"
+    id={`${pokemon.id}`}
+    style={{ backgroundColor: pokemon.color }}
+  >
+    <img class="full-screen-image" src={pokemon.imageUrl} alt={pokemon.name} />
+  </main>
+</Layout>
 
 <style>
   main {
