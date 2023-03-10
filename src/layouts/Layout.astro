@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Pokedex - View Transitions API Demo</title>
+    <script>
+      import '../scripts/navigate';
+    </script>
+  </head>
+  <body id="content">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .full-size {
+    view-transition-name: full-size;
+    contain: layout;
+  }
+
+  .full-size-image {
+    view-transition-name: full-size-image;
+    contain: layout;
+  }
+
+  ::view-transition-old(full-size),
+  ::view-transition-new(full-size) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-image-pair(full-size) {
+    isolation: none;
+  }
+
+  ::view-transition-old(full-size-image),
+  ::view-transition-new(full-size-image) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-image-pair(full-size-image) {
+    isolation: none;
+  }
+</style>
