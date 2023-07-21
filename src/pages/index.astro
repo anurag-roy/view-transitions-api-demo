@@ -14,8 +14,14 @@ const pokemon = (await response.json()) as Pokemon[];
           href={`/${p.id}`}
           id={`${p.id}`}
           style={{ backgroundColor: p.color }}
+          transition:name={`main-${p.id}`}
         >
-          <img height="224px" width="224px" src={p.imageUrl} />
+          <img
+            height="224px"
+            width="224px"
+            src={p.imageUrl}
+            transition:name={`image-${p.id}`}
+          />
         </a>
       ))
     }
