@@ -6,4 +6,7 @@ import vercel from '@astrojs/vercel/edge';
 export default defineConfig({
   output: 'server',
   adapter: vercel(),
+  experimental: {
+    viewTransitions: true,
+  },
 });
