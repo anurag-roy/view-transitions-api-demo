@@ -9,11 +9,15 @@ const pokemon = (await response.json()) as PokemonDetail;
 
 <Layout>
   <main
-    class="full-screen"
     id={`${pokemon.id}`}
     style={{ backgroundColor: pokemon.color }}
+    transition:name={`main-${pokemon.id}`}
   >
-    <img class="full-screen-image" src={pokemon.imageUrl} alt={pokemon.name} />
+    <img
+      src={pokemon.imageUrl}
+      alt={pokemon.name}
+      transition:name={`image-${pokemon.id}`}
+    />
   </main>
 </Layout>
 
