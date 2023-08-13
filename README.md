@@ -10,9 +10,10 @@ https://user-images.githubusercontent.com/53750093/224427419-eea33ba6-92fa-4ccc-
 
 ### Things to note
 
-- View Transitions API does not support MPAs yet, so I had to emulate SPA-like behaviour/navigation through the also experimental [navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API)
+- ~~View Transitions API does not support MPAs yet, so I had to emulate SPA-like behaviour/navigation through the also experimental [navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API)~~
+
+Astro now supports the View Transitions API with its `<ViewTransitions />` element which is awesome! Check out the docs [here](https://docs.astro.build/en/guides/view-transitions/).
 
 ### Resources and Further Reading
 
-- [Experiments with Astro and the Shared Element Transition API](https://www.maxiferreira.com/blog/astro-page-transitions/)
 - [Smooth and simple transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
